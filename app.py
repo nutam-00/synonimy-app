@@ -1,29 +1,61 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, session
 from datetime import datetime
 import json
 import random
 
 app = Flask(__name__)
+app.secret_key = "jakis_tajny_klucz_123"
 
 # Wczytaj bazę słów
 with open("baza_synonimow.json", "r", encoding="utf-8") as f:
-    baza = json.load(f)
+    synonimy = json.load(f)
 
-@app.route("/", methods=["GET", "POST"])
+@app.route("/")
 def index():
-    if request.method == "POST":
-        imie = request.form.get("imie")
-        data_start = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-
-        slowo, synonimy = random.choice(list(baza.items()))
-
-        return f"""
-        <h1>Witaj {imie}!</h1>
-        <p>Data rozpoczęcia: {data_start}</p>
-        <h2>Słowo: {slowo}</h2>
-        """
-
     return render_template("index.html")
+
+@app.route("/start", methods=["POST"])
+def start():
+
+    session["imie"] = request.form["imie"]
+    session["punkty"] = 0
+    session["runda"] = 1
+    session["wylosowane"] = random.sample(list(synonimy.keys()), 5)
+
+    return redirect("/gra")
+
+
+
+@app.route("/gra", methods=["GET", "POST"])
+def gra():
+
+    if session["runda"] > 5:
+        return redirect("/koniec")
+
+    slowo = session["wylosowane"][session["runda"] - 1]
+
+    if request.method == "POST":
+        odp1 = request.form["synonim1"].lower().strip()
+        odp2 = request.form["synonim2"].lower().strip()
+
+        poprawne = synonimy[slowo]
+
+        if odp1 in poprawne and odp2 in poprawne and odp1 != odp2:
+            session["punkty"] += 1
+
+        session["runda"] += 1
+        return redirect("/gra")
+
+    return render_template("gra.html", slowo=slowo, runda=session["runda"])
+
+
+@app.route("/koniec")
+def koniec():
+    wynik = session["punkty"]
+    imie = session["imie"]
+    return render_template("koniec.html", wynik=wynik, imie=imie)
+
+
 
 if __name__ == "__main__":
     app.run()
