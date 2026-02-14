@@ -1,4 +1,4 @@
-<h2>Runda {{ runda }} / 5</h2>
+<!-- <h2>Runda {{ runda }} / 5</h2>
 <h3>Punkty: {{ punkty }}</h3>
 
 <h1>Słowo: {{ dane.slowo }}</h1>
@@ -20,4 +20,32 @@
 
 <a href="/nastepna">
     <button>Dalej</button>
-</a>
+</a> -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wynik rundy</title>
+</head>
+<body>
+
+<h2>Słowo: {{ slowo }}</h2>
+
+<h3>Twój wynik: {{ trafione }}/2</h3>
+
+<p>Poprawne synonimy:</p>
+<p>
+{% for s in poprawne %}
+    {{ s }}{% if not loop.last %}, {% endif %}
+{% endfor %}
+</p>
+
+<h3>Punkty: {{ punkty }}</h3>
+
+<form action="/gra">
+    <button type="submit">Dalej</button>
+</form>
+
+</body>
+</html>
