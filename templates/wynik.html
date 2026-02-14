@@ -1,28 +1,3 @@
-<!-- <h2>Runda {{ runda }} / 5</h2>
-<h3>Punkty: {{ punkty }}</h3>
-
-<h1>Słowo: {{ dane.slowo }}</h1>
-
-<p>Twoje odpowiedzi:</p>
-<ul>
-    <li>{{ dane.odp1 }}</li>
-    <li>{{ dane.odp2 }}</li>
-</ul>
-
-{% if dane.trafione %}
-    <h2 style="color:green;">Dobrze!</h2>
-{% else %}
-    <h2 style="color:red;">Źle!</h2>
-{% endif %}
-
-<p>Poprawne synonimy:</p>
-<p>{{ dane.poprawne | join(", ") }}</p>
-
-<a href="/nastepna">
-    <button>Dalej</button>
-</a> -->
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,22 +5,31 @@
 </head>
 <body>
 
-<h2>Słowo: {{ slowo }}</h2>
+<h2>Runda {{ runda }} / 5</h2>
 
-<h3>Twój wynik: {{ trafione }}/2</h3>
+<h3>Słowo: <b>{{ slowo }}</b></h3>
 
-<p>Poprawne synonimy:</p>
-<p>
+<h3>Trafione synonimy: {{ trafione }} / 2</h3>
+
+<h4>Poprawne odpowiedzi:</h4>
+<ul>
 {% for s in poprawne %}
-    {{ s }}{% if not loop.last %}, {% endif %}
+    <li>{{ s }}</li>
 {% endfor %}
-</p>
+</ul>
 
-<h3>Punkty: {{ punkty }}</h3>
+<h3>Aktualne punkty: {{ punkty }}</h3>
 
+{% if runda < 5 %}
 <form action="/gra">
-    <button type="submit">Dalej</button>
+    <button type="submit">Następna runda</button>
 </form>
+{% else %}
+<form action="/koniec">
+    <button type="submit">Zobacz podsumowanie</button>
+</form>
+{% endif %}
+
 
 </body>
 </html>
