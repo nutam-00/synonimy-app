@@ -1,0 +1,62 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Ranking graczy</title>
+</head>
+<body>
+
+<h1>🏆 Ranking graczy</h1>
+
+<table border="1" cellpadding="8">
+<tr>
+    <th>Miejsce</th>
+    <th>Nick</th>
+    <th>Punkty</th>
+    <th>Data</th>
+</tr>
+
+{% for gracz in ranking %}
+<tr>
+    <td>{{ loop.index }}</td>
+    <td>{{ gracz.nick }}</td>
+    <td>{{ gracz.punkty }}</td>
+    <td>{{ gracz.data }}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+<br>
+<a href="/">Zagraj ponownie</a>
+
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ranking</title>
+</head>
+<body>
+
+<h2>🏆 Ranking ostatnich 7 dni (TOP 5)</h2>
+
+{% if ranking %}
+    <ol>
+    {% for gracz in ranking %}
+        <li>
+            <b>{{ gracz.nick }}</b> — {{ gracz.punkty }} pkt
+            ({{ gracz.data }})
+        </li>
+    {% endfor %}
+    </ol>
+{% else %}
+    <p>Brak rozegranych gier w ostatnich 7 dniach</p>
+{% endif %}
+
+<br>
+<a href="/">Powrót do startu</a>
+
+</body>
+</html>

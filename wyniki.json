@@ -1,32 +1,12 @@
 [
   {
-    "nick": null,
-    "punkty": 0,
-    "max": 5,
-    "data": "2026-02-14 13:20"
+    "nick": "dana",
+    "punkty": 1,
+    "data": "2026-02-14"
   },
   {
-    "nick": null,
+    "nick": "dd",
     "punkty": 0,
-    "max": 5,
-    "data": "2026-02-14 13:21"
-  },
-  {
-    "nick": "nutka",
-    "punkty": 0,
-    "max": 5,
-    "data": "2026-02-14 13:22"
-  },
-  {
-    "nick": "nutka",
-    "punkty": 0,
-    "max": 5,
-    "data": "2026-02-14 13:26"
-  },
-  {
-    "nick": "0000",
-    "punkty": 0,
-    "max": 5,
-    "data": "2026-02-14 13:28"
+    "data": "2026-02-14"
   }
 ]

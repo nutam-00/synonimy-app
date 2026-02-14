@@ -1,9 +1,16 @@
 
 from flask import Flask, render_template, request, redirect, session
-from datetime import datetime
+from datetime import datetime, timedelta
 import json
 import random
 import os
+
+
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+PLIK_WYNIKOW = os.path.join(BASE_DIR, "wyniki.json")
+
+print("PLIK WYNIKOW:", PLIK_WYNIKOW)
 
 app = Flask(__name__)
 app.secret_key = "jakis_tajny_klucz_123"
@@ -13,28 +20,23 @@ with open("baza_synonimow.json", "r", encoding="utf-8") as f:
     synonimy = json.load(f)
 
 def zapisz_wynik(nick, punkty):
-    plik = "wyniki.json"
 
-    # jeśli plik nie istnieje – utwórz
-    if not os.path.exists(plik):
-        with open(plik, "w", encoding="utf-8") as f:
-            json.dump([], f)
+    try:
+        with open(PLIK_WYNIKOW, "r", encoding="utf-8") as f:
+            wyniki = json.load(f)
+    except:
+        wyniki = []
 
-    # wczytaj stare wyniki
-    with open(plik, "r", encoding="utf-8") as f:
-        dane = json.load(f)
-
-    # dodaj nowy wynik
-    dane.append({
+    wyniki.append({
         "nick": nick,
         "punkty": punkty,
-        "max": 5,
-        "data": datetime.now().strftime("%Y-%m-%d %H:%M")
+        "data": datetime.now().strftime("%Y-%m-%d")
+
     })
 
-    # zapisz
-    with open(plik, "w", encoding="utf-8") as f:
-        json.dump(dane, f, ensure_ascii=False, indent=2)
+    with open(PLIK_WYNIKOW, "w", encoding="utf-8") as f:
+        json.dump(wyniki, f, ensure_ascii=False, indent=2)
+
 
 
 # ================= STRONA STARTOWA =================
@@ -116,19 +118,83 @@ def wynik():
         czy_koniec = ostatnia_runda >= 5
     )
 
+# ================= RANKING =================
+
+
+@app.route("/ranking")
+def ranking():
+
+    print("CZYTAM Z:", PLIK_WYNIKOW)
+
+    # zapis jeśli ktoś ominął /koniec
+    if "punkty" in session and not session.get("zapisano", False):
+        zapisz_wynik(session.get("nick", "Gracz"), session["punkty"])
+        session["zapisano"] = True
+
+    try:
+        with open(PLIK_WYNIKOW, "r", encoding="utf-8") as f:
+
+            wyniki = json.load(f)
+    except:
+        wyniki = []
+
+    # ostatnie 7 dni
+    siedem_dni_temu = (datetime.now() - timedelta(days=7)).date()
+
+    ostatnie = []
+    for w in wyniki:
+        data_txt = w.get("data", "")
+
+        data_gry = None
+
+        # obsługa wszystkich wersji jakie miałaś
+        for fmt in ("%Y-%m-%d", "%Y-%m-%d %H:%M", "%Y-%m-%d %H:%M:%S"):
+            try:
+                data_gry = datetime.strptime(data_txt, fmt)
+                break
+            except:
+                pass
+
+        if not data_gry:
+            continue
+
+        if data_gry.date() >= siedem_dni_temu:
+            w["data_obj"] = data_gry
+            ostatnie.append(w)
+
+
+
+
+    # sortowanie: punkty ↓, data ↓
+    ostatnie.sort(key=lambda x: (x["punkty"], x["data_obj"]), reverse=True)
+    top5 = ostatnie[:5]
+
+
+    # usuń godzinę (tylko do wyświetlenia)
+    for w in top5:
+        w["data"] = w["data"][:10]
+
+    return render_template("ranking.html", ranking=top5)
+
+
 
 # ================= KONIEC GRY =================
 @app.route("/koniec")
 def koniec():
-    wynik = session["punkty"]
+
+    if "nick" not in session:
+        return redirect("/")
+
+    wynik = session.get("punkty", 0)
     nick = session.get("nick", "Gracz")
 
-    # zapisz tylko raz (żeby nie zapisywało po odświeżeniu)
-    if not session.get("zapisano"):
+    # zapis tylko raz
+    if not session.get("zapisano", False):
         zapisz_wynik(nick, wynik)
         session["zapisano"] = True
 
-    return render_template("koniec.html", wynik=wynik, imie=nick)
+    return render_template("koniec.html", wynik=wynik, nick=nick)
+
 
 
 
