@@ -1,0 +1,23 @@
+<h2>Runda {{ runda }} / 5</h2>
+<h3>Punkty: {{ punkty }}</h3>
+
+<h1>Słowo: {{ dane.slowo }}</h1>
+
+<p>Twoje odpowiedzi:</p>
+<ul>
+    <li>{{ dane.odp1 }}</li>
+    <li>{{ dane.odp2 }}</li>
+</ul>
+
+{% if dane.trafione %}
+    <h2 style="color:green;">Dobrze!</h2>
+{% else %}
+    <h2 style="color:red;">Źle!</h2>
+{% endif %}
+
+<p>Poprawne synonimy:</p>
+<p>{{ dane.poprawne | join(", ") }}</p>
+
+<a href="/nastepna">
+    <button>Dalej</button>
+</a>
