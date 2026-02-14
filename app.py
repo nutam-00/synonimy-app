@@ -13,12 +13,29 @@ with open("baza_synonimow.json", "r", encoding="utf-8") as f:
 
 # ================= START GRY =================
 @app.route("/")
+def index():
+    return render_template("index.html")
+
+# @app.route("/")
+# def start():
+#     session.clear()
+#     session["punkty"] = 0
+#     session["runda"] = 1
+#     session["wylosowane"] = random.sample(list(synonimy.keys()), 5)
+#     return redirect("/gra")
+
+@app.route("/start", methods=["POST"])
 def start():
+    imie = request.form["imie"]
+
     session.clear()
+    session["imie"] = imie
     session["punkty"] = 0
     session["runda"] = 1
     session["wylosowane"] = random.sample(list(synonimy.keys()), 5)
+
     return redirect("/gra")
+
 
 
 # ================= GRA =================
@@ -86,7 +103,7 @@ def wynik():
 @app.route("/koniec")
 def koniec():
     wynik = session["punkty"]
-    return render_template("koniec.html", wynik=wynik)
+    return render_template("koniec.html", wynik=wynik, imie=session.get("imie"))
 
 
 if __name__ == "__main__":
