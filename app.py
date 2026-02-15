@@ -4,38 +4,73 @@ from datetime import datetime, timedelta
 import json
 import random
 import os
+import sqlite3
+
 
 
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PLIK_WYNIKOW = os.path.join(BASE_DIR, "wyniki.json")
 
-print("PLIK WYNIKOW:", PLIK_WYNIKOW)
 
 app = Flask(__name__)
 app.secret_key = "jakis_tajny_klucz_123"
+
+def init_db():
+    conn = sqlite3.connect("baza.db")
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS wyniki (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            nick TEXT NOT NULL,
+            punkty INTEGER NOT NULL,
+            data TEXT NOT NULL
+        )
+    """)
+
+    conn.commit()
+    conn.close()
+
+init_db()
 
 # Wczytaj bazę słów
 with open("baza_synonimow.json", "r", encoding="utf-8") as f:
     synonimy = json.load(f)
 
+# def zapisz_wynik(nick, punkty):
+
+#     try:
+#         with open(PLIK_WYNIKOW, "r", encoding="utf-8") as f:
+#             wyniki = json.load(f)
+#     except:
+#         wyniki = []
+
+#     wyniki.append({
+#         "nick": nick,
+#         "punkty": punkty,
+#         "data": datetime.now().strftime("%Y-%m-%d")
+
+#     })
+
+#     with open(PLIK_WYNIKOW, "w", encoding="utf-8") as f:
+#         json.dump(wyniki, f, ensure_ascii=False, indent=2)
+
 def zapisz_wynik(nick, punkty):
+    conn = sqlite3.connect("baza.db")
+    cursor = conn.cursor()
 
-    try:
-        with open(PLIK_WYNIKOW, "r", encoding="utf-8") as f:
-            wyniki = json.load(f)
-    except:
-        wyniki = []
+    data = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-    wyniki.append({
-        "nick": nick,
-        "punkty": punkty,
-        "data": datetime.now().strftime("%Y-%m-%d")
 
-    })
+    cursor.execute("""
+        INSERT INTO wyniki (nick, punkty, data)
+        VALUES (?, ?, ?)
+    """, (nick, punkty, data))
 
-    with open(PLIK_WYNIKOW, "w", encoding="utf-8") as f:
-        json.dump(wyniki, f, ensure_ascii=False, indent=2)
+    conn.commit()
+    conn.close()
+
 
 
 
@@ -119,62 +154,84 @@ def wynik():
     )
 
 # ================= RANKING =================
+def pobierz_ranking():
+    conn = sqlite3.connect("baza.db")
+    conn.row_factory = sqlite3.Row   # 🔥 TO JEST KLUCZOWE
+    cursor = conn.cursor()
+
+    siedem_dni_temu = (datetime.now() - timedelta(days=7)).strftime("%Y-%m-%d")
+
+    cursor.execute("""
+        SELECT nick, punkty, data
+        FROM wyniki
+        WHERE data >= ?
+        ORDER BY punkty DESC, data DESC
+        LIMIT 5
+    """, (siedem_dni_temu,))
+
+    dane = cursor.fetchall()
+    conn.close()
+
+    return dane
+  
 
 
 @app.route("/ranking")
 def ranking():
 
-    print("CZYTAM Z:", PLIK_WYNIKOW)
+    # print("CZYTAM Z:", PLIK_WYNIKOW)
 
     # zapis jeśli ktoś ominął /koniec
     if "punkty" in session and not session.get("zapisano", False):
         zapisz_wynik(session.get("nick", "Gracz"), session["punkty"])
         session["zapisano"] = True
 
-    try:
-        with open(PLIK_WYNIKOW, "r", encoding="utf-8") as f:
+    # try:
+    #     with open(PLIK_WYNIKOW, "r", encoding="utf-8") as f:
 
-            wyniki = json.load(f)
-    except:
-        wyniki = []
+    #         wyniki = json.load(f)
+    # except:
+    #     wyniki = []
 
     # ostatnie 7 dni
-    siedem_dni_temu = (datetime.now() - timedelta(days=7)).date()
+    # siedem_dni_temu = (datetime.now() - timedelta(days=7)).date()
 
-    ostatnie = []
-    for w in wyniki:
-        data_txt = w.get("data", "")
+    # ostatnie = []
+    # for w in wyniki:
+    #     data_txt = w.get("data", "")
 
-        data_gry = None
+    #     data_gry = None
 
-        # obsługa wszystkich wersji jakie miałaś
-        for fmt in ("%Y-%m-%d", "%Y-%m-%d %H:%M", "%Y-%m-%d %H:%M:%S"):
-            try:
-                data_gry = datetime.strptime(data_txt, fmt)
-                break
-            except:
-                pass
+    #     # obsługa wszystkich wersji jakie miałaś
+    #     for fmt in ("%Y-%m-%d", "%Y-%m-%d %H:%M", "%Y-%m-%d %H:%M:%S"):
+    #         try:
+    #             data_gry = datetime.strptime(data_txt, fmt)
+    #             break
+    #         except:
+    #             pass
 
-        if not data_gry:
-            continue
+    #     if not data_gry:
+    #         continue
 
-        if data_gry.date() >= siedem_dni_temu:
-            w["data_obj"] = data_gry
-            ostatnie.append(w)
-
-
+    #     if data_gry.date() >= siedem_dni_temu:
+    #         w["data_obj"] = data_gry
+    #         ostatnie.append(w)
 
 
-    # sortowanie: punkty ↓, data ↓
-    ostatnie.sort(key=lambda x: (x["punkty"], x["data_obj"]), reverse=True)
-    top5 = ostatnie[:5]
+
+
+    # # sortowanie: punkty ↓, data ↓
+    # ostatnie.sort(key=lambda x: (x["punkty"], x["data_obj"]), reverse=True)
+    # top5 = ostatnie[:5]
 
 
     # usuń godzinę (tylko do wyświetlenia)
-    for w in top5:
-        w["data"] = w["data"][:10]
+    # for w in top5:
+    #     w["data"] = w["data"][:10]
 
-    return render_template("ranking.html", ranking=top5)
+    ranking = pobierz_ranking()
+    return render_template("ranking.html", ranking=ranking)
+    # return render_template("ranking.html", ranking=top5)
 
 
 
