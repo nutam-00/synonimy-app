@@ -301,7 +301,7 @@ import psycopg2
 
 app = Flask(__name__)
 app.secret_key = "jakis_tajny_klucz_123"
-print(os.environ.get("DATABASE_URL"))
+# print(os.environ.get("DATABASE_URL"))
 
 
 
@@ -309,11 +309,23 @@ print(os.environ.get("DATABASE_URL"))
 # def get_connection():
 #     return psycopg2.connect(os.environ["DATABASE_URL"])
 
+# def get_connection():
+#     database_url = os.environ.get("DATABASE_URL")
+#     if not database_url:
+#         raise RuntimeError("Brak DATABASE_URL — uruchamiasz bez bazy Postgres")
+#     return psycopg2.connect(database_url)
+
+
 def get_connection():
     database_url = os.environ.get("DATABASE_URL")
     if not database_url:
-        raise RuntimeError("Brak DATABASE_URL — uruchamiasz bez bazy Postgres")
-    return psycopg2.connect(database_url)
+        raise RuntimeError("DATABASE_URL nie ustawione")
+
+    return psycopg2.connect(
+        database_url,
+        sslmode="require",
+        connect_timeout=10
+    )
 
 
 
