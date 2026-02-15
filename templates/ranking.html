@@ -12,7 +12,8 @@
     <ol>
     {% for gracz in ranking %}
         <li>
-            <b>{{ gracz.nick }}</b> — {{ gracz.punkty }} pkt
+            <!-- <b>{{ gracz.nick }}</b> — {{ gracz.punkty }} pkt -->
+            <b>{{ gracz[0] }}</b> — {{ gracz[1] }} pkt
         </li>
 
     {% endfor %}
