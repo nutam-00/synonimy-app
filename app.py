@@ -336,8 +336,8 @@ def init_db():
 
 
 # init_db()
-if os.environ.get("DATABASE_URL"):
-    init_db()
+# if os.environ.get("DATABASE_URL"):
+#     init_db()
 
 
 
@@ -485,6 +485,12 @@ def koniec():
         session["zapisano"] = True
 
     return render_template("koniec.html", wynik=wynik, nick=nick)
+
+@app.route("/init-db")
+def init_database():
+    init_db()
+    return "Database initialized!"
+
 
 
 if __name__ == "__main__":
