@@ -1,0 +1,1476 @@
+{
+  "przedagonalny": [
+    "przedzgonny",
+    "przedśmiertny",
+    "śmiertelny"
+  ],
+  "bujny": [
+    "gęsty",
+    "rozrośnięty"
+  ],
+  "czuły": [
+    "miękki",
+    "tkliwy"
+  ],
+  "nawykły": [
+    "przywykły",
+    "przyzwyczajony"
+  ],
+  "chciwy": [
+    "głodny",
+    "niesyty",
+    "spragniony",
+    "wygłodniały",
+    "złakniony",
+    "łakomy",
+    "łasy",
+    "żądliwy",
+    "żądny"
+  ],
+  "grabieżczy": [
+    "rabunkowy",
+    "łupieski",
+    "łupieżczy"
+  ],
+  "flegmatyczny": [
+    "nieruchawy",
+    "nieruchliwy",
+    "ospały",
+    "ślamazarny",
+    "ślimaczy",
+    "żółwi"
+  ],
+  "czepny": [
+    "kleisty",
+    "klejki",
+    "klejowaty",
+    "klejący",
+    "lepki"
+  ],
+  "obślizgły": [
+    "obślizły",
+    "oślizgły",
+    "oślizły"
+  ],
+  "lekki": [
+    "lekkostrawny",
+    "łatwostrawny"
+  ],
+  "bojaźliwy": [
+    "lękliwy",
+    "strachliwy",
+    "tchórzliwy",
+    "trwożliwy"
+  ],
+  "biologiczny": [
+    "witalny",
+    "życiowy",
+    "żywotny"
+  ],
+  "martwy": [
+    "nieżywy",
+    "zimny"
+  ],
+  "altruistyczny": [
+    "nieegoistyczny",
+    "niesamolubny"
+  ],
+  "gniewny": [
+    "rozgniewany",
+    "rozzłoszczony",
+    "wzburzony",
+    "zagniewany",
+    "zły"
+  ],
+  "postnatalny": [
+    "pozamaciczny",
+    "pozapłodowy"
+  ],
+  "jednoramienny": [
+    "jednoręczny",
+    "jednoręki"
+  ],
+  "płytkowaty": [
+    "łuskowaty",
+    "łuszczasty"
+  ],
+  "asocjacyjny": [
+    "asocjatywny",
+    "skojarzeniowy"
+  ],
+  "chodliwy": [
+    "chwytliwy",
+    "chwytny",
+    "pokupny"
+  ],
+  "akustyczny": [
+    "dźwiękowy",
+    "soniczny"
+  ],
+  "bezdźwięczny": [
+    "bezgłosy",
+    "bezgłośny",
+    "niemy",
+    "niesłyszalny"
+  ],
+  "hipersoniczny": [
+    "naddźwiękowy",
+    "ponaddźwiękowy",
+    "supersoniczny"
+  ],
+  "rozespany": [
+    "senny",
+    "śpiący"
+  ],
+  "cudowny": [
+    "krasy",
+    "piękny"
+  ],
+  "jedyny": [
+    "najlepszy",
+    "optymalny"
+  ],
+  "trialistyczny": [
+    "trypletowy",
+    "trzyczęściowy",
+    "trójdzielny"
+  ],
+  "ognistowłosy": [
+    "płomiennowłosy",
+    "rudowłosy",
+    "ryżowłosy",
+    "ryży"
+  ],
+  "krostowaty": [
+    "krościaty",
+    "pryszczaty"
+  ],
+  "dzielny": [
+    "mężny",
+    "odważny"
+  ],
+  "błyszczący": [
+    "lśniący",
+    "połyskujący",
+    "łyskliwy"
+  ],
+  "delikatny": [
+    "miękki",
+    "subtelny",
+    "łagodny"
+  ],
+  "drobnomieszczański": [
+    "małomieszczański",
+    "mieszczański"
+  ],
+  "lewacki": [
+    "lewicowy",
+    "lewy"
+  ],
+  "chropawy": [
+    "chropowaty",
+    "szorstki"
+  ],
+  "gruntowny": [
+    "solidny",
+    "szczegółowy"
+  ],
+  "beztroski": [
+    "lekki",
+    "lekkoduszny",
+    "lekkomyślny",
+    "niefrasobliwy",
+    "niepoważny"
+  ],
+  "gwałtowny": [
+    "nagły",
+    "raptowny"
+  ],
+  "centralny": [
+    "centryczny",
+    "środkowy"
+  ],
+  "charytatywny": [
+    "dobroczynny",
+    "filantropijny"
+  ],
+  "lubieżny": [
+    "rozpustny",
+    "rozwiązły"
+  ],
+  "amberowy": [
+    "bursztynowy",
+    "jantarowy"
+  ],
+  "pozłocisty": [
+    "złocisty",
+    "złociutki",
+    "złotolicy",
+    "złotolity",
+    "złoty"
+  ],
+  "złocistożółty": [
+    "złotawożółty",
+    "złotożółty"
+  ],
+  "zielonozłoty": [
+    "złocistozielony",
+    "złotozielony"
+  ],
+  "brunatnobrązowy": [
+    "brunatny",
+    "brązowobrunatny"
+  ],
+  "paliowy": [
+    "słomianożółty",
+    "słomkowożółty",
+    "słomkowy"
+  ],
+  "popielatoszary": [
+    "popielaty",
+    "popielisty",
+    "szaropopielaty"
+  ],
+  "smolisty": [
+    "smolny",
+    "smołowaty"
+  ],
+  "srebrnoszary": [
+    "srebrzystoszary",
+    "szarosrebrzysty"
+  ],
+  "białośnieżny": [
+    "śnieżnobiały",
+    "śnieżny",
+    "śnieżysty"
+  ],
+  "barwny": [
+    "chromatyczny",
+    "kolorowy",
+    "różnobarwny",
+    "różnokolorowy",
+    "stubarwny",
+    "wielobarwny",
+    "wielokolorowy"
+  ],
+  "trzybarwny": [
+    "trzykolorowy",
+    "trójbarwny",
+    "trójkolorowy"
+  ],
+  "jaskrawy": [
+    "żarzysty",
+    "żarówiasty"
+  ],
+  "bezbarwny": [
+    "poblakły",
+    "przyblakły",
+    "spełzły",
+    "spłowiały",
+    "wyblakły",
+    "wypełzły",
+    "wypłowiały",
+    "wyszarzały",
+    "zblakły",
+    "zmatowiały"
+  ],
+  "barbarzyński": [
+    "niecywilizowany",
+    "nieucywilizowany"
+  ],
+  "egzoteryczny": [
+    "masowy",
+    "popularny"
+  ],
+  "przetłuszczony": [
+    "tłusty",
+    "zatłuszczony"
+  ],
+  "obsceniczny": [
+    "sprosny",
+    "sprośny"
+  ],
+  "mętny": [
+    "niejasny",
+    "nieostry",
+    "nieprzejrzysty",
+    "rozlany",
+    "rozmazany",
+    "zamazany"
+  ],
+  "daleki": [
+    "oddalony",
+    "odległy"
+  ],
+  "bliski": [
+    "niedaleki",
+    "nieodległy",
+    "pobliski"
+  ],
+  "chmurny": [
+    "ponury",
+    "posępny"
+  ],
+  "niepalny": [
+    "ognioodporny",
+    "ogniotrwały",
+    "przeciwogniowy"
+  ],
+  "komercjalny": [
+    "komercyjny",
+    "merkantylny"
+  ],
+  "przyjęty": [
+    "tradycjonalny",
+    "tradycyjny",
+    "zwyczajowy"
+  ],
+  "calusieńki": [
+    "caluteńki",
+    "calutki",
+    "caluśki",
+    "cały",
+    "nienaruszony",
+    "nieuszkodzony"
+  ],
+  "niewerbalny": [
+    "pozasłowny",
+    "pozawerbalny"
+  ],
+  "fragmentaryczny": [
+    "selektywny",
+    "wybiórczy",
+    "wycinkowy"
+  ],
+  "powszechny": [
+    "uniwersalistyczny",
+    "uniwersalny",
+    "wszechstronny"
+  ],
+  "niewybuchowy": [
+    "opanowany",
+    "zrównoważony"
+  ],
+  "jasny": [
+    "jaśniuteńki",
+    "jaśniutki"
+  ],
+  "indyferentny": [
+    "obojętny",
+    "stępiały"
+  ],
+  "kompatybilny": [
+    "niesprzeczny",
+    "styczny",
+    "zgodny"
+  ],
+  "jednogłośny": [
+    "jednomyślny",
+    "jednozgodny"
+  ],
+  "nieadekwatny": [
+    "nienależyty",
+    "nieodpowiedni",
+    "niepoprawny",
+    "nieprawidłowy",
+    "niewłaściwy"
+  ],
+  "niepokonany": [
+    "niezwalczony",
+    "niezwyciężalny",
+    "niezwyciężony"
+  ],
+  "antonimiczny": [
+    "antynomiczny",
+    "dysharmonijny",
+    "kontradyktoryjny",
+    "opozycyjny",
+    "przeciwbieżny",
+    "przeciwstawny",
+    "sprzeczny"
+  ],
+  "gruby": [
+    "tłusty",
+    "wyróżniony"
+  ],
+  "niejednakowy": [
+    "niestały",
+    "zmienny"
+  ],
+  "destrukcyjny": [
+    "destruktywny",
+    "rozkładowy"
+  ],
+  "niejednostajny": [
+    "niemiarowy",
+    "nieregularny",
+    "nierówny"
+  ],
+  "bezustanny": [
+    "ciągły",
+    "nieprzełamany",
+    "nieustający",
+    "nieustanny",
+    "permanentny"
+  ],
+  "24-godzinny": [
+    "całodobowy",
+    "dwudziestoczterogodzinny"
+  ],
+  "bezdyskusyjny": [
+    "bezsporny",
+    "bezsprzeczny",
+    "niezaprzeczalny",
+    "pozadyskusyjny"
+  ],
+  "konfliktowy": [
+    "kłótliwy",
+    "niezgodny",
+    "swarliwy"
+  ],
+  "przedajny": [
+    "przekupny",
+    "sprzedajny"
+  ],
+  "fizyczny": [
+    "materialny",
+    "namacalny"
+  ],
+  "kartoflany": [
+    "małomiasteczkowy",
+    "miasteczkowy",
+    "prowincjonalny",
+    "zaściankowy"
+  ],
+  "decydujący": [
+    "przesądzający",
+    "rozstrzygający"
+  ],
+  "ciekawski": [
+    "wszędobylski",
+    "wścibski"
+  ],
+  "głuchawy": [
+    "niedosłyszący",
+    "przygłuchy",
+    "słabosłyszący"
+  ],
+  "kategoryczny": [
+    "stanowczy",
+    "zdecydowany"
+  ],
+  "bezdenny": [
+    "niezgłębiony",
+    "przepastny",
+    "przepaścisty"
+  ],
+  "niegłęboki": [
+    "powierzchowny",
+    "płyciutki",
+    "płytki"
+  ],
+  "bezproblemowy": [
+    "nietrudny",
+    "łatwy"
+  ],
+  "totalitarny": [
+    "totalitarystyczny",
+    "totalny"
+  ],
+  "niepodważalny": [
+    "niezbity",
+    "święty"
+  ],
+  "rzetelny": [
+    "solidny",
+    "sumienny"
+  ],
+  "samodzielny": [
+    "zaradny",
+    "życiowy"
+  ],
+  "nieokreślony": [
+    "nieoznaczony",
+    "niesprecyzowany"
+  ],
+  "kompromisowy": [
+    "konsensualny",
+    "pojednawczy",
+    "ugodowy"
+  ],
+  "podcięty": [
+    "podpity",
+    "wstawiony",
+    "zawiany"
+  ],
+  "jednostajny": [
+    "miarowy",
+    "regularny",
+    "rytmiczny",
+    "równy"
+  ],
+  "inicjalny": [
+    "początkowy",
+    "zalążkowy"
+  ],
+  "macierzysty": [
+    "pierwotny",
+    "prymarny",
+    "zaczątkowy"
+  ],
+  "bezowocny": [
+    "bezskuteczny",
+    "nieskuteczny"
+  ],
+  "bezproduktywny": [
+    "bezpłodny",
+    "czczy",
+    "nieproduktywny"
+  ],
+  "elastyczny": [
+    "giętki",
+    "sprężysty"
+  ],
+  "fakultatywny": [
+    "nieobligatoryjny",
+    "nieobowiązkowy"
+  ],
+  "emocjonalny": [
+    "sensytywny",
+    "uczuciowy",
+    "wrażliwy"
+  ],
+  "cukierkowaty": [
+    "cukierkowy",
+    "landrynkowaty",
+    "landrynkowy",
+    "przesłodzony"
+  ],
+  "sprawdzalny": [
+    "testowalny",
+    "weryfikowalny"
+  ],
+  "chwacki": [
+    "dziarski",
+    "energiczny",
+    "gracki",
+    "siarczysty",
+    "witalistyczny",
+    "witalny"
+  ],
+  "eksploracyjny": [
+    "eksploratorski",
+    "poszukiwawczy"
+  ],
+  "melancholiczny": [
+    "melancholijny",
+    "nostalgiczny"
+  ],
+  "równoległy": [
+    "równorzędny",
+    "współrzędny"
+  ],
+  "drwiący": [
+    "szyderczy",
+    "szydliwy"
+  ],
+  "falisty": [
+    "pagórkowaty",
+    "pofalowany",
+    "wzgórzysty"
+  ],
+  "brylasty": [
+    "bryłkowaty",
+    "bryłowaty"
+  ],
+  "nieoczekiwany": [
+    "nieprzewidziany",
+    "niespodziany",
+    "niespodziewany"
+  ],
+  "oblatany": [
+    "obyty",
+    "wprawny",
+    "zaprawny"
+  ],
+  "niedoświadczony": [
+    "surowy",
+    "zieloniutki",
+    "zielony"
+  ],
+  "niezbadany": [
+    "niezgłębiony",
+    "tajemniczy",
+    "zagadkowy"
+  ],
+  "prawy": [
+    "wierzchni",
+    "zewnętrzny"
+  ],
+  "antyczny": [
+    "klasyczny",
+    "staroklasyczny"
+  ],
+  "prędki": [
+    "szparki",
+    "szybki",
+    "ścigły"
+  ],
+  "chybki": [
+    "chyży",
+    "śmigły"
+  ],
+  "chimeryczny": [
+    "nierzeczywisty",
+    "wirtualny"
+  ],
+  "patykowaty": [
+    "szczapowaty",
+    "tyczkowaty",
+    "tykowaty"
+  ],
+  "kościany": [
+    "kościsty",
+    "szkieletowaty"
+  ],
+  "trafny": [
+    "zgrabny",
+    "zręczny"
+  ],
+  "bezbrzeżny": [
+    "bezgraniczny",
+    "bezkresny",
+    "bezmierny",
+    "nieograniczony",
+    "nieskończony",
+    "niezmierny",
+    "niezmierzony"
+  ],
+  "kabłąkowaty": [
+    "pałąkowaty",
+    "łukowaty",
+    "łękowaty"
+  ],
+  "nieelastyczny": [
+    "niegiętki",
+    "niesprężysty",
+    "sztywny",
+    "twardy"
+  ],
+  "giętki": [
+    "kompromisowy",
+    "ugodowy"
+  ],
+  "autonomiczny": [
+    "niepodległy",
+    "niezawisły",
+    "samodzielny",
+    "suwerenny",
+    "wolny"
+  ],
+  "nieskrępowany": [
+    "swobodny",
+    "wolny"
+  ],
+  "czerstwy": [
+    "suchy",
+    "wyschnięty"
+  ],
+  "braterski": [
+    "bratni",
+    "przyjacielski"
+  ],
+  "niechętny": [
+    "nieprzychylny",
+    "nieprzyjazny"
+  ],
+  "nienapełniony": [
+    "próżny",
+    "pusty",
+    "puściuteńki",
+    "puściutki"
+  ],
+  "generalny": [
+    "główny",
+    "kapitalny"
+  ],
+  "hojny": [
+    "szczodrobliwy",
+    "szczodry"
+  ],
+  "autentyczny": [
+    "naturalny",
+    "prawdziwy"
+  ],
+  "utalentowany": [
+    "uzdolniony",
+    "zdolny"
+  ],
+  "antyhumanitarny": [
+    "bezduszny",
+    "bezlitosny",
+    "bezuczuciowy",
+    "niehumanitarny",
+    "nielitościwy",
+    "nieludzki",
+    "okrutny"
+  ],
+  "demoniczny": [
+    "sataniczny",
+    "szatański"
+  ],
+  "bezecny": [
+    "mały",
+    "mikry",
+    "niecny",
+    "niegodziwy",
+    "nieprawy",
+    "nikczemny",
+    "nędzny",
+    "podły"
+  ],
+  "drażliwy": [
+    "przeczulony",
+    "przewrażliwiony"
+  ],
+  "niezdarny": [
+    "niezgrabny",
+    "niezręczny"
+  ],
+  "drewniany": [
+    "drętwy",
+    "odrętwiały",
+    "sztywniacki"
+  ],
+  "miękki": [
+    "niesztywny",
+    "nietwardy"
+  ],
+  "nawisły": [
+    "obwisły",
+    "zwisły"
+  ],
+  "dysharmoniczny": [
+    "dysharmonijny",
+    "nieharmoniczny"
+  ],
+  "chorobliwy": [
+    "chorobowy",
+    "patologiczny"
+  ],
+  "okołoziemski": [
+    "wokołoziemski",
+    "wokółziemski"
+  ],
+  "homogeniczny": [
+    "jeden",
+    "jednolity",
+    "jednorodny",
+    "niezróżnicowany"
+  ],
+  "dolny": [
+    "niski",
+    "niskotonowy"
+  ],
+  "dwulicowy": [
+    "fałszywy",
+    "jezuicki",
+    "obłudny",
+    "zakłamany",
+    "załgany"
+  ],
+  "diagonalny": [
+    "skośny",
+    "ukośny"
+  ],
+  "bezduszny": [
+    "bezuczuciowy",
+    "nieludzki",
+    "okrutny"
+  ],
+  "pospieszny": [
+    "pośpieszny",
+    "spieszny",
+    "śpieszny"
+  ],
+  "istotny": [
+    "niebagatelny",
+    "niebanalny",
+    "niebłahy",
+    "ważki",
+    "ważny",
+    "znaczący"
+  ],
+  "główny": [
+    "najważniejszy",
+    "pryncypalny",
+    "właściwy",
+    "zasadniczy"
+  ],
+  "bazowy": [
+    "centralny",
+    "główny",
+    "rdzenny",
+    "wytyczny"
+  ],
+  "nieistotny": [
+    "nieważny",
+    "nieznaczący"
+  ],
+  "szałowy": [
+    "wyskokowy",
+    "wystrzałowy"
+  ],
+  "dostojny": [
+    "hieratyczny",
+    "majestatyczny"
+  ],
+  "groźny": [
+    "srogi",
+    "surowy"
+  ],
+  "dydaktyczny": [
+    "pedagogiczny",
+    "wychowawczy"
+  ],
+  "kaznodziejski": [
+    "mentorski",
+    "moralistyczny",
+    "moralizatorski"
+  ],
+  "celowy": [
+    "rozmyślny",
+    "specjalny",
+    "umyślny",
+    "zamierzony"
+  ],
+  "nieumyślny": [
+    "niezamierzony",
+    "przypadkowy"
+  ],
+  "nieinteresujący": [
+    "niezajmujący",
+    "nudny"
+  ],
+  "introwersyjny": [
+    "introwertyczny",
+    "introwertywny"
+  ],
+  "przełzawiony": [
+    "płaczliwy",
+    "płaksiwy",
+    "rzewny",
+    "smętny",
+    "tkliwy",
+    "tęskny",
+    "łzawy"
+  ],
+  "bolesny": [
+    "boleściwy",
+    "żałosny"
+  ],
+  "wielkoduszny": [
+    "wspaniałomyślny",
+    "łaskawy"
+  ],
+  "dobroduszny": [
+    "dobrotliwy",
+    "poczciwy"
+  ],
+  "nieznajomy": [
+    "nieznany",
+    "obcy"
+  ],
+  "diadyczny": [
+    "dwuosobowy",
+    "podwójny"
+  ],
+  "ogromny": [
+    "olbrzymi",
+    "wielgachny",
+    "wielgaśny"
+  ],
+  "gargantuiczny": [
+    "gigantyczny",
+    "kolosalny"
+  ],
+  "maciupeńki": [
+    "maleńki",
+    "maluchny",
+    "maluczki",
+    "malusieńki",
+    "maluteńki",
+    "malutki",
+    "mikrominiaturowy",
+    "mikroskopijny",
+    "mikry"
+  ],
+  "dniowy": [
+    "dzienny",
+    "jednodniowy"
+  ],
+  "godzinny": [
+    "jednogodzinny",
+    "sześćdziesięciominutowy"
+  ],
+  "dwunastomiesięczny": [
+    "jednoletni",
+    "jednoroczny",
+    "roczny"
+  ],
+  "krótki": [
+    "krótkotrwały",
+    "niedługi"
+  ],
+  "luźny": [
+    "nieobcisły",
+    "obszerny",
+    "szeroki"
+  ],
+  "jawny": [
+    "nieukrywany",
+    "otwarty"
+  ],
+  "minorowy": [
+    "mollowy",
+    "molowy"
+  ],
+  "dalszoplanowy": [
+    "drugoplanowy",
+    "drugorzędny",
+    "niecentralny",
+    "niepodstawowy",
+    "poboczny",
+    "sekundarny",
+    "uboczny",
+    "wtórny"
+  ],
+  "babski": [
+    "niemęski",
+    "zbabiały",
+    "zniewieściały"
+  ],
+  "hermafrodytyczny": [
+    "obojnaczy",
+    "obojnaki"
+  ],
+  "bliźniaczy": [
+    "bliźnięcy",
+    "zbliźniaczony"
+  ],
+  "małoletni": [
+    "młodociany",
+    "nieletni"
+  ],
+  "embrionalny": [
+    "prenatalny",
+    "płodowy",
+    "zarodkowy"
+  ],
+  "górny": [
+    "maksi",
+    "maksymalny"
+  ],
+  "bezsensowny": [
+    "bezsensowy",
+    "nonsensowny"
+  ],
+  "litościwy": [
+    "miłosierny",
+    "miłościwy"
+  ],
+  "bezlitosny": [
+    "nielitościwy",
+    "niemiłosierny",
+    "nieubłagany",
+    "niezbłagany"
+  ],
+  "nieradykalny": [
+    "pomierny",
+    "umiarkowany"
+  ],
+  "amoralny": [
+    "naganny",
+    "nieetyczny",
+    "niemoralny",
+    "pozaetyczny"
+  ],
+  "internacjonalny": [
+    "międzynarodowy",
+    "ponadgraniczny",
+    "transgraniczny"
+  ],
+  "globalny": [
+    "globowy",
+    "ogólnoświatowy",
+    "wszechświatowy",
+    "światowy"
+  ],
+  "nadnaturalny": [
+    "nadprzyrodzony",
+    "nadrealny",
+    "nieziemski",
+    "paranormalny",
+    "ponadnormalny",
+    "pozazmysłowy"
+  ],
+  "metafizyczny": [
+    "nadzmysłowy",
+    "ponadzmysłowy",
+    "pozazmysłowy"
+  ],
+  "epilogowy": [
+    "finalny",
+    "finałowy",
+    "finiszowy"
+  ],
+  "konieczny": [
+    "nieodzowny",
+    "niezastąpiony",
+    "niezbędny"
+  ],
+  "normalny": [
+    "typowy",
+    "zwyczajny",
+    "zwykły"
+  ],
+  "obmierzły": [
+    "obrzydliwy",
+    "obrzydły",
+    "ohydny",
+    "wstrętny"
+  ],
+  "pożółkły": [
+    "wyżółkły",
+    "zżółkły"
+  ],
+  "osiwiały": [
+    "posiwiały",
+    "przyprószony siwizną",
+    "siwy",
+    "zsiwiały"
+  ],
+  "kilkunastoletni": [
+    "nastoletni",
+    "parunastoletni"
+  ],
+  "metodyczny": [
+    "planowy",
+    "taktyczny"
+  ],
+  "klasyczny": [
+    "konserwatywny",
+    "konwencjonalny",
+    "tradycjonalny",
+    "tradycyjny"
+  ],
+  "fantastyczny": [
+    "fenomenalny",
+    "kapitalny",
+    "rewelacyjny"
+  ],
+  "nieoryginalny": [
+    "niesamodzielny",
+    "nieświeży",
+    "odtwórczy",
+    "wtórny"
+  ],
+  "heretycki": [
+    "heterodoksyjny",
+    "nieortodoksyjny"
+  ],
+  "śniegowy": [
+    "śnieżny",
+    "śnieżysty"
+  ],
+  "bezpłatny": [
+    "darmowy",
+    "nieodpłatny"
+  ],
+  "ortogonalny": [
+    "perpendykularny",
+    "prostopadły"
+  ],
+  "miniony": [
+    "przeszły",
+    "ubiegły",
+    "zeszły"
+  ],
+  "pierwotny": [
+    "pozahistoryczny",
+    "prahistoryczny",
+    "prehistoryczny"
+  ],
+  "bezzwłoczny": [
+    "błyskawiczny",
+    "momentalny",
+    "natychmiastowy",
+    "niezwłoczny"
+  ],
+  "doskonały": [
+    "nieporównany",
+    "niezrównany"
+  ],
+  "nieskończony": [
+    "nieśmiertelny",
+    "wiecznotrwały",
+    "wieczny",
+    "wieczysty",
+    "wiekuisty"
+  ],
+  "czasowy": [
+    "okresowy",
+    "przejściowy",
+    "tymczasowy"
+  ],
+  "niedopuszczalny": [
+    "niedozwolony",
+    "zakazany"
+  ],
+  "bogobojny": [
+    "nabożny",
+    "pobożny",
+    "zbożny",
+    "świątobliwy",
+    "świętobliwy"
+  ],
+  "bałwochwalczy": [
+    "bałwochwalski",
+    "pogański"
+  ],
+  "kropiasty": [
+    "kropkowany",
+    "kropkowaty",
+    "kropkowy"
+  ],
+  "pasiasty": [
+    "pasiaty",
+    "paskowany"
+  ],
+  "bukoliczny": [
+    "idylliczny",
+    "sielankowy",
+    "sielski"
+  ],
+  "dodatni": [
+    "plusowy",
+    "pozytywny"
+  ],
+  "minusowy": [
+    "negatywny",
+    "ujemny"
+  ],
+  "możliwy": [
+    "potencjalny",
+    "potencjonalny",
+    "prawdopodobny"
+  ],
+  "beznadziejny": [
+    "bezwyjściowy",
+    "patowy",
+    "rozpaczliwy"
+  ],
+  "omnipotentny": [
+    "wszechmocny",
+    "wszechmogący",
+    "wszechpotężny",
+    "wszechwładny"
+  ],
+  "dokładny": [
+    "drobiazgowy",
+    "drobnostkowy",
+    "precyzyjny",
+    "skrupulatny",
+    "szczegółowy"
+  ],
+  "oligofreniczny": [
+    "opóźniony w rozwoju",
+    "upośledzony",
+    "upośledzony umysłowo",
+    "ułomny"
+  ],
+  "nieubłagalny": [
+    "nieubłagany",
+    "nieuchronny",
+    "nieunikniony",
+    "niezbłagany"
+  ],
+  "bombastyczny": [
+    "górnolotny",
+    "namaszczony",
+    "pompatyczny",
+    "szumny"
+  ],
+  "elementarny": [
+    "początkowy",
+    "podstawowy"
+  ],
+  "marginalny": [
+    "marginesowy",
+    "peryferyczny",
+    "peryferyjny"
+  ],
+  "nieoficjalny": [
+    "pozaoficjalny",
+    "prywatny"
+  ],
+  "dyskrecjonalny": [
+    "konfidencjonalny",
+    "pokątny",
+    "poufny",
+    "sekretny",
+    "tajemny",
+    "tajny",
+    "ukrywany"
+  ],
+  "fachowy": [
+    "kompetentny",
+    "kwalifikowany",
+    "profesjonalny",
+    "wykwalifikowany",
+    "wyszkolony"
+  ],
+  "amatorski": [
+    "dyletancki",
+    "laicki",
+    "niefachowy",
+    "nieprofesjonalny"
+  ],
+  "dochodowy": [
+    "intratny",
+    "opłacalny",
+    "zyskowny"
+  ],
+  "profetyczny": [
+    "proroczy",
+    "wieszczy",
+    "wróżbny",
+    "wróżebny"
+  ],
+  "dumny": [
+    "wyniosły",
+    "władczy",
+    "zarozumiały"
+  ],
+  "lekkomyślny": [
+    "nieprzemyślany",
+    "nierozważny"
+  ],
+  "bezgrzeszny": [
+    "bezwinny",
+    "niepokalany",
+    "nieskalany",
+    "niewinny"
+  ],
+  "dziewiczy": [
+    "nieskażony",
+    "nietknięty"
+  ],
+  "niepewny": [
+    "problematyczny",
+    "wątpliwy"
+  ],
+  "gwarny": [
+    "głośny",
+    "hałaśliwy",
+    "zgiełkliwy"
+  ],
+  "dokumentalny": [
+    "dokumentarny",
+    "obiektywny"
+  ],
+  "fikcyjny": [
+    "nadrzeczywisty",
+    "nieprawdziwy",
+    "nierzeczywisty",
+    "wymyślony"
+  ],
+  "ułudny": [
+    "zwodny",
+    "złudny"
+  ],
+  "gminny": [
+    "pospolity",
+    "prostacki"
+  ],
+  "coroczny": [
+    "doroczny",
+    "rokroczny"
+  ],
+  "wymienialny": [
+    "wymienny",
+    "zamienialny",
+    "zamienny"
+  ],
+  "powściągliwy": [
+    "umiarkowany",
+    "zdystansowany"
+  ],
+  "nieugięty": [
+    "niewzruszony",
+    "niezachwiany",
+    "niezłomny"
+  ],
+  "arogancki": [
+    "bezczelny",
+    "butny",
+    "czelny",
+    "hardy",
+    "hucpiarski",
+    "zuchwały"
+  ],
+  "dźwięczny": [
+    "dźwiękliwy",
+    "jasny",
+    "klarowny"
+  ],
+  "bogaty": [
+    "przepyszny",
+    "wspaniały",
+    "wystawny"
+  ],
+  "konserwatywny": [
+    "prawicowy",
+    "prawy"
+  ],
+  "kielichowaty": [
+    "kielichowy",
+    "kieliszkowaty"
+  ],
+  "pordzewiały": [
+    "skorodowany",
+    "zardzewiały"
+  ],
+  "bezreligijny": [
+    "laicki",
+    "niereligijny",
+    "świecki"
+  ],
+  "bezpieczny": [
+    "niegroźny",
+    "niezagrażający"
+  ],
+  "jednakowy": [
+    "jednoraki",
+    "równy",
+    "taki sam"
+  ],
+  "niejednogłośny": [
+    "niejednomyślny",
+    "rozbieżny"
+  ],
+  "identyczny": [
+    "taki sam",
+    "ten sam",
+    "tożsamy"
+  ],
+  "debilny": [
+    "durnowaty",
+    "idiotyczny",
+    "kretyński",
+    "zidiociały"
+  ],
+  "oddzielny": [
+    "odrębny",
+    "osobny"
+  ],
+  "szelmowski": [
+    "łobuzerski",
+    "łotrzykowski"
+  ],
+  "seksowny": [
+    "sexy",
+    "zmysłowy"
+  ],
+  "familiarny": [
+    "konfidencjonalny",
+    "poufały"
+  ],
+  "chutliwy": [
+    "chutny",
+    "pożądliwy"
+  ],
+  "cycaty": [
+    "piersiasty",
+    "piersisty"
+  ],
+  "amorficzny": [
+    "bezforemny",
+    "bezkształtny",
+    "bezpostaciowy",
+    "nieforemny"
+  ],
+  "lejkowaty": [
+    "lejowaty",
+    "lejowy",
+    "trąbiasty",
+    "trąbkowaty"
+  ],
+  "niewidomy": [
+    "niewidzący",
+    "ślepy"
+  ],
+  "niedowidzący": [
+    "półślepy",
+    "słabowidzący"
+  ],
+  "rozkładalny": [
+    "rozkładany",
+    "składany"
+  ],
+  "faryzejski": [
+    "faryzeuszowski",
+    "jezuicki",
+    "obłudny",
+    "przewrotny"
+  ],
+  "częstotliwy": [
+    "wielokrotny",
+    "wielorazowy"
+  ],
+  "dualistyczny": [
+    "dwoisty",
+    "dychotomiczny"
+  ],
+  "koncertowy": [
+    "majsterski",
+    "mistrzowski",
+    "wirtuozerski",
+    "wirtuozowski"
+  ],
+  "mączasty": [
+    "mączny",
+    "mączysty"
+  ],
+  "oparszywiały": [
+    "parchaty",
+    "parszywy",
+    "sparszywiały"
+  ],
+  "piłowaty": [
+    "ząbkowany",
+    "ząbkowaty",
+    "zębaty",
+    "zębiasty",
+    "zębowaty"
+  ],
+  "interpersonalny": [
+    "międzyludzki",
+    "międzyosobowy"
+  ],
+  "inteligentny": [
+    "mózgowaty",
+    "łebski",
+    "łepski"
+  ],
+  "bywały": [
+    "obyty",
+    "wyrobiony",
+    "światowy"
+  ],
+  "dziecinny": [
+    "dziecięcy",
+    "pacholęcy",
+    "pisklęcy"
+  ]
+}
