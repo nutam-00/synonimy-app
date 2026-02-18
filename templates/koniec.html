@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
     <title>Koniec gry</title>
@@ -18,4 +18,26 @@
 
 </body>
 </html>
+ -->
 
+
+
+
+ {% extends "base.html" %}
+
+{% block content %}
+
+<h2>Koniec gry!</h2>
+<h3>{{ nick }}, Twój wynik: {{ wynik }} / 5</h3>
+
+<br>
+
+<a href="/ranking">
+    <button>Zobacz ranking</button>
+</a>
+
+<br><br>
+
+<a href="/">Zagraj ponownie</a>
+
+{% endblock %}

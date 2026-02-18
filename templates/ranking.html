@@ -1,4 +1,4 @@
-
+<!-- 
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,9 +11,9 @@
 {% if ranking %}
     <ol>
     {% for gracz in ranking %}
-        <li>
+        <li> -->
             <!-- <b>{{ gracz.nick }}</b> — {{ gracz.punkty }} pkt -->
-            <b>{{ gracz[0] }}</b> — {{ gracz[1] }} pkt
+            <!-- <b>{{ gracz[0] }}</b> — {{ gracz[1] }} pkt
         </li>
 
     {% endfor %}
@@ -26,4 +26,32 @@
 <a href="/">Powrót do startu</a>
 
 </body>
-</html>
+</html> -->
+
+
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>🏆 Ranking ostatnich 7 dni (TOP 5)</h2>
+
+{% if ranking %}
+    <ol>
+    {% for gracz in ranking %}
+        <li>
+            <b>{{ gracz[0] }}</b> — {{ gracz[1] }} pkt
+        </li>
+    {% endfor %}
+    </ol>
+{% else %}
+    <p>Brak rozegranych gier w ostatnich 7 dniach</p>
+{% endif %}
+
+<br>
+
+<a href="/">
+    <button>Powrót do startu</button>
+</a>
+
+{% endblock %}
+
