@@ -6,10 +6,35 @@
     <title>Synonimy</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-main: #14110F;
+            --bg-secondary: #1F1917;
+
+            /* --text-primary: #EDE6DD;
+            --text-secondary: #A89F91; */
+            --text-primary: #D8D0C4;   /* cieplejszy jasny */
+            --text-secondary: #E4DDD2; /* brązowo-szary */
+
+            --accent-primary: #F6BE3E;
+            --accent-hover: #D9822B;
+
+            --mint-light: #7ED6C1;
+            --mint-dark: #5AC2AA;
+        }
+
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            /* background: linear-gradient(135deg, var(--bg-main), var(--bg-secondary)); */
+            /* background: linear-gradient(135deg, #1F1917, #2A2320); */
+            background: linear-gradient(135deg, #2A2320, #3A312C);
+            /* background: linear-gradient(135deg, #3A312C, #4A4039); */
+
+            color: var(--text-primary);
 
             display: flex;
             justify-content: center;
@@ -19,26 +44,49 @@
         }
 
         .container {
-            background: white;
+            background: var(--bg-secondary);
             padding: 40px;
             border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
             width: 90%;
             max-width: 500px;
             text-align: center;
+            /* display: flex;
+            flex-direction: column;
+            gap: 12px; */
+
         }
 
         h2, h3, h4 {
             margin-top: 10px;
+            color: var(--text-primary);
+            user-select: none;
+        }
+        p, li {
+            color: var(--text-secondary);
+            user-select: none;
         }
 
         input {
             width: 100%;
             padding: 12px;
-            margin: 8px 0;
+            /* margin: 8px 0; */
             border-radius: 8px;
-            border: 1px solid #ddd;
+            border: 1px solid var(--text-secondary);
+            background: #2A2320;
+            color: var(--text-primary);
             font-size: 16px;
+            transition: 0.2s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border: 1px solid var(--mint-dark);
+            box-shadow: 0 0 0 2px rgba(90, 194, 170, 0.25);
+            background: #2A2320; /* NIE zmienia się na biały */
+        }
+        input:hover {
+            border: 1px solid var(--mint-light);
         }
 
         button {
@@ -46,25 +94,69 @@
             padding: 12px;
             border: none;
             border-radius: 8px;
-            background: #6366f1;
-            color: white;
+            background: var(--accent-primary);
+            color: var(--bg-main);
             font-size: 16px;
             cursor: pointer;
-            margin-top: 10px;
+            /* margin-top: 20px; */
+            margin: 0;
+
+            transition: 0.2s ease;
         }
 
+        
+
         button:hover {
-            background: #4f46e5;
+            background: var(--accent-hover);
+            transform: translateY(-2px);
         }
+
+        input {
+            margin-bottom: 24px;   /* większa przerwa pod inputem */
+        }
+
+        button:first-of-type {
+            margin-bottom: 8px;    /* mała przerwa między buttonami */
+        }
+
 
         a {
             text-decoration: none;
+            color: var(--mint-light);
+            transition: 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--mint-dark);
         }
 
         ol, ul {
             text-align: left;
+            color: var(--text-secondary);
         }
+
+        /* h2, h3, h4, p, li {
+            user-select: none;
+        } */
+
+        /* TU WKLEJASZ */
+        input:-webkit-autofill,
+        input:-webkit-autofill:focus {
+            -webkit-box-shadow: 0 0 0px 1000px #2A2320 inset !important;
+            -webkit-text-fill-color: var(--text-primary) !important;
+            transition: background-color 5000s ease-in-out 0s;
+        }
+
+        body {
+            user-select: none;
+        }
+
+        input, textarea {
+            user-select: text;
+        }
+
     </style>
+
 </head>
 <body>
     <div class="container">
