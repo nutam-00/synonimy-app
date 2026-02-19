@@ -1,25 +1,3 @@
-<!-- <!DOCTYPE html>
-<html>
-<head>
-    <title>Start gry</title>
-</head>
-<body>
-
-<h2>Podaj swoje imię</h2>
-
-<form action="/start" method="POST">
-    <input type="text" name="nick" placeholder="Twój nick" required minlength="2" maxlength="20">
-    <button type="submit">Zacznij grę</button>
-</form>
-
-<br>
-<a href="/ranking">
-    <button type="button">Zobacz ranking</button>
-</a>
-
-
-</body>
-</html> -->
 
 
 {% extends "base.html" %}
@@ -30,6 +8,11 @@
 
 <form action="/start" method="POST">
     <input type="text" name="nick" placeholder="Twój nick" required minlength="2" maxlength="20">
+    <label style="display:flex; align-items:center; gap:8px; margin-top:10px;">
+        <input type="checkbox" name="remember">
+        Zapamiętaj mnie
+    </label>
+
     <button type="submit">Zacznij grę</button>
 </form>
 
