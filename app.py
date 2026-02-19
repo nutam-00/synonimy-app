@@ -136,38 +136,80 @@ def zapisz_wynik(user_id, punkty):
 
 
 # ================= POBIERANIE RANKINGU =================
+# def pobierz_ranking():
+#     conn = get_connection()
+#     cursor = conn.cursor()
+
+#     cursor.execute("""
+#         SELECT users.nick, wyniki.punkty
+#         FROM wyniki
+#         JOIN users ON wyniki.user_id = users.id
+#         WHERE wyniki.data >= NOW() - INTERVAL '7 days'
+#         ORDER BY wyniki.punkty DESC, wyniki.data DESC
+#         LIMIT 5
+#     """)
+
+
+#     dane = cursor.fetchall()
+#     conn.close()
+
+#     return dane
+
+# def pobierz_ranking():
+#     conn = get_connection()
+#     cursor = conn.cursor()
+
+#     cursor.execute("""
+#         SELECT nick, total_points
+#         FROM users
+#         ORDER BY total_points DESC
+#         LIMIT 5
+#     """)
+
+#     dane = cursor.fetchall()
+#     conn.close()
+
+#     return dane
+
 def pobierz_ranking():
     conn = get_connection()
     cursor = conn.cursor()
 
-    # cursor.execute("""
-    #     SELECT nick, punkty
-    #     FROM wyniki
-    #     WHERE data >= NOW() - INTERVAL '7 days'
-    #     ORDER BY punkty DESC, data DESC
-    #     LIMIT 5
-    # """)
     cursor.execute("""
-        SELECT users.nick, wyniki.punkty
-        FROM wyniki
-        JOIN users ON wyniki.user_id = users.id
-        WHERE wyniki.data >= NOW() - INTERVAL '7 days'
-        ORDER BY wyniki.punkty DESC, wyniki.data DESC
+        SELECT 
+            u.nick,
+            u.total_points,
+            MAX(w.data) as last_game
+        FROM users u
+        LEFT JOIN wyniki w ON u.id = w.user_id
+        GROUP BY u.id
+        ORDER BY u.total_points DESC, last_game DESC
         LIMIT 5
     """)
-
 
     dane = cursor.fetchall()
     conn.close()
 
-    return dane
+    # zwracamy tylko nick i punkty (bez last_game)
+    return [(row[0], row[1]) for row in dane]
 
 
 # ================= STRONA STARTOWA =================
+# @app.route("/")
+# def index():
+#     return render_template("index.html")
+
 @app.route("/")
 def index():
-    return render_template("index.html")
+    cookie_user_id = request.cookies.get("user_id")
+    nick = ""
 
+    if cookie_user_id:
+        user = get_user_by_id(cookie_user_id)
+        if user:
+            nick = user[1]
+
+    return render_template("index.html", saved_nick=nick)
 
 # ================= ROZPOCZĘCIE GRY =================
 # @app.route("/start", methods=["POST"])
@@ -184,30 +226,75 @@ def index():
 
 #     return redirect("/gra")
 
+# @app.route("/start", methods=["POST"])
+# def start_post():
+#     nick = request.form.get("nick")
+#     remember = request.form.get("remember")
+
+#     session.clear()
+
+#     # jeśli user ma cookie
+#     user_id = request.cookies.get("user_id")
+
+#     if user_id:
+#         user = get_user_by_id(user_id)
+#         if user:
+#             session["user_id"] = user[0]
+#             session["nick"] = user[1]
+#         else:
+#             user_id = create_user(nick)
+#             session["user_id"] = user_id
+#             session["nick"] = nick
+#     else:
+#         user_id = create_user(nick)
+#         session["user_id"] = user_id
+#         session["nick"] = nick
+
+#     session["punkty"] = 0
+#     session["runda"] = 1
+#     session["zapisano"] = False
+#     session["wylosowane"] = random.sample(list(synonimy.keys()), 5)
+
+#     response = make_response(redirect("/gra"))
+
+#     if remember:
+#         response.set_cookie("user_id", str(session["user_id"]), max_age=60*60*24*365)
+
+#     return response
+
 @app.route("/start", methods=["POST"])
 def start_post():
-    nick = request.form.get("nick")
+    nick = request.form.get("nick").strip()
     remember = request.form.get("remember")
 
     session.clear()
 
-    # jeśli user ma cookie
-    user_id = request.cookies.get("user_id")
+    cookie_user_id = request.cookies.get("user_id")
+    user_id = None
 
-    if user_id:
-        user = get_user_by_id(user_id)
+    # Jeśli jest cookie
+    if cookie_user_id:
+        user = get_user_by_id(cookie_user_id)
+
+        # Jeśli user istnieje w bazie
         if user:
-            session["user_id"] = user[0]
-            session["nick"] = user[1]
-        else:
-            user_id = create_user(nick)
-            session["user_id"] = user_id
-            session["nick"] = nick
-    else:
-        user_id = create_user(nick)
-        session["user_id"] = user_id
-        session["nick"] = nick
+            saved_nick = user[1]
 
+            # Jeśli wpisany nick jest taki sam → używamy tego usera
+            if nick == saved_nick:
+                user_id = user[0]
+            else:
+                # Inny nick → tworzymy nowego usera
+                user_id = create_user(nick)
+        else:
+            # Cookie wskazuje nieistniejącego usera
+            user_id = create_user(nick)
+    else:
+        # Brak cookie → tworzymy usera
+        user_id = create_user(nick)
+
+    session["user_id"] = user_id
+    session["nick"] = nick
     session["punkty"] = 0
     session["runda"] = 1
     session["zapisano"] = False
@@ -215,8 +302,9 @@ def start_post():
 
     response = make_response(redirect("/gra"))
 
+    # Cookie ustawiamy tylko jeśli checkbox zaznaczony
     if remember:
-        response.set_cookie("user_id", str(session["user_id"]), max_age=60*60*24*365)
+        response.set_cookie("user_id", str(user_id), max_age=60*60*24*365)
 
     return response
 
@@ -332,6 +420,20 @@ def koniec():
         session["zapisano"] = True
 
     return render_template("koniec.html", wynik=wynik, nick=nick)
+
+@app.route("/exit")
+def exit_game():
+    user_id = session.get("user_id")
+    nick = session.get("nick")
+
+    session.clear()
+
+    # przywracamy dane usera do nowej sesji
+    if user_id and nick:
+        session["user_id"] = user_id
+        session["nick"] = nick
+
+    return redirect("/")
 
 @app.route("/init-db")
 def init_database():

@@ -1,40 +1,3 @@
-<!-- <!DOCTYPE html>
-<html>
-<head>
-    <title>Wynik rundy</title>
-</head>
-<body>
-
-<h2>Runda {{ runda }} / 5</h2>
-
-<h3>Słowo: <b>{{ slowo }}</b></h3>
-
-<h3>Trafione synonimy: {{ trafione }} / 2</h3>
-
-<h4>Poprawne odpowiedzi:</h4>
-<ul>
-{% for s in poprawne %}
-    <li>{{ s }}</li>
-{% endfor %}
-</ul>
-
-<h3>Aktualne punkty: {{ punkty }}</h3>
-
-{% if runda < 5 %}
-<form action="/gra">
-    <button type="submit">Następna runda</button>
-</form>
-{% else %}
-<form action="/koniec">
-    <button type="submit">Zobacz podsumowanie</button>
-</form>
-{% endif %}
-
-
-</body>
-</html> -->
-
-
 
 {% extends "base.html" %}
 
@@ -51,6 +14,14 @@
     <li>{{ s }}</li>
 {% endfor %}
 </ul>
+
+<div style="position:absolute; top:20px; right:20px;">
+    <a href="/exit">
+        <button style="background:#ff4d4d; color:white; border:none; padding:8px 12px; border-radius:8px;">
+            Wyjdź
+        </button>
+    </a>
+</div>
 
 <h3>Aktualne punkty: {{ punkty }}</h3>
 

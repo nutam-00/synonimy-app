@@ -28,6 +28,14 @@
 <h2>Runda {{ runda }} / 5</h2>
 <h3>Podaj 2 synonimy słowa: <b>{{ slowo }}</b></h3>
 
+<div style="position:absolute; top:20px; right:20px;">
+    <a href="/exit">
+        <button style="background:#ff4d4d; color:white; border:none; padding:8px 12px; border-radius:8px;">
+            Wyjdź
+        </button>
+    </a>
+</div>
+
 <form method="POST">
     <input type="text" name="synonim1" placeholder="Pierwszy synonim" required>
     <input type="text" name="synonim2" placeholder="Drugi synonim" required>

@@ -1,5 +1,4 @@
 
-
 {% extends "base.html" %}
 
 {% block content %}
@@ -7,11 +6,35 @@
 <h2>Podaj swoje imię</h2>
 
 <form action="/start" method="POST">
-    <input type="text" name="nick" placeholder="Twój nick" required minlength="2" maxlength="20">
-    <label style="display:flex; align-items:center; gap:8px; margin-top:10px;">
-        <input type="checkbox" name="remember">
-        Zapamiętaj mnie
-    </label>
+
+    <input 
+        type="text" 
+        name="nick" 
+        id="nickInput"
+        placeholder="Twój nick" 
+        value="{{ saved_nick }}" 
+        required 
+        minlength="2" 
+        maxlength="20"
+    >
+
+    {% if not saved_nick %}
+    <div class="remember-wrapper" id="rememberBox">
+        <label class="remember-label">
+            <input type="checkbox" name="remember">
+            <span class="custom-checkbox"></span>
+            Zapamiętaj mnie
+        </label>
+    </div>
+    {% else %}
+    <div class="remember-wrapper" id="rememberBox" style="display:none;">
+        <label class="remember-label">
+            <input type="checkbox" name="remember">
+            <span class="custom-checkbox"></span>
+            Zapamiętaj mnie
+        </label>
+    </div>
+    {% endif %}
 
     <button type="submit">Zacznij grę</button>
 </form>
@@ -21,5 +44,19 @@
 <a href="/ranking">
     <button type="button">Zobacz ranking</button>
 </a>
+
+<script>
+    const nickInput = document.getElementById("nickInput");
+    const rememberBox = document.getElementById("rememberBox");
+    const savedNick = "{{ saved_nick }}";
+
+    nickInput.addEventListener("input", function() {
+        if (nickInput.value !== savedNick) {
+            rememberBox.style.display = "flex";
+        } else {
+            rememberBox.style.display = "none";
+        }
+    });
+</script>
 
 {% endblock %}
