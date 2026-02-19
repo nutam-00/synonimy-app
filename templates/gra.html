@@ -1,29 +1,28 @@
-<!-- <!DOCTYPE html>
-<html>
-<head>
-    <title>Gra w synonimy</title>
-</head>
-<body>
-
-<h2>Runda {{ runda }} / 5</h2>
-<h3>Podaj 2 synonimy słowa: <b>{{ slowo }}</b></h3>
-
-<form method="POST">
-    <input type="text" name="synonim1" placeholder="Pierwszy synonim" required>
-    <input type="text" name="synonim2" placeholder="Drugi synonim" required>
-    <button type="submit">Sprawdź</button>
-</form>
-
-</body>
-</html>
-
- -->
-
-
 
  {% extends "base.html" %}
 
 {% block content %}
+<div class="game-status">
+
+    <div class="level">
+        <span class="star active">★</span>
+        <span class="star">★</span>
+        <span class="star">★</span>
+    </div>
+
+    <div class="lives">
+        ❤️❤️❤️
+    </div>
+
+    <div class="lifelines">
+        🛟 0
+    </div>
+
+    <div class="round">
+        Runda {{ runda }}/5
+    </div>
+
+</div>
 
 <h2>Runda {{ runda }} / 5</h2>
 <h3>Podaj 2 synonimy słowa: <b>{{ slowo }}</b></h3>

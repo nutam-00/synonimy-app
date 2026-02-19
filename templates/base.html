@@ -205,6 +205,45 @@
             transform: translate(-50%, -50%);
         }
 
+        /* ===== GAME STATUS ===== */
+
+        .game-status {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            font-size: 18px;
+        }
+
+        .level {
+            display: flex;
+            gap: 5px;
+        }
+
+        .star {
+            font-size: 20px;
+            color: #555;
+            transition: 0.2s ease;
+        }
+
+        .star.active {
+            color: var(--accent-primary);
+            text-shadow: 0 0 6px rgba(246,190,62,0.7);
+        }
+
+        .lives {
+            font-size: 20px;
+        }
+
+        .lifelines {
+            font-size: 18px;
+        }
+
+        .round {
+            font-size: 16px;
+            color: var(--text-secondary);
+}
+
 
     </style>
 
