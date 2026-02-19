@@ -338,27 +338,27 @@ def init_database():
     init_db()
     return "Database initialized!"
 
-@app.route("/debug-users")
-def debug_users():
-    conn = get_connection()
-    cursor = conn.cursor()
-    cursor.execute("SELECT id, nick, total_points FROM users")
-    users = cursor.fetchall()
-    conn.close()
-    return str(users)
+# @app.route("/debug-users")
+# def debug_users():
+#     conn = get_connection()
+#     cursor = conn.cursor()
+#     cursor.execute("SELECT id, nick, total_points FROM users")
+#     users = cursor.fetchall()
+#     conn.close()
+#     return str(users)
 
-@app.route("/reset-db")
-def reset_db():
-    conn = get_connection()
-    cursor = conn.cursor()
+# @app.route("/reset-db")
+# def reset_db():
+#     conn = get_connection()
+#     cursor = conn.cursor()
 
-    cursor.execute("DROP TABLE IF EXISTS wyniki")
-    cursor.execute("DROP TABLE IF EXISTS users")
+#     cursor.execute("DROP TABLE IF EXISTS wyniki")
+#     cursor.execute("DROP TABLE IF EXISTS users")
 
-    conn.commit()
-    conn.close()
+#     conn.commit()
+#     conn.close()
 
-    return "Tables dropped!"
+#     return "Tables dropped!"
 
 
 
