@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Synonimy</title>
 
-    <style>
+    <!-- <style>
         * {
             box-sizing: border-box;
         }
@@ -245,6 +245,255 @@
 }
 
 
+    </style> -->
+
+   <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-main: #020f2c;
+            --bg-secondary: #041a3d;
+            --bg-input: #0d3c7a;
+
+            --text-primary: #ceebf3;
+            --text-secondary: #acdefc;
+
+            --accent-primary: #c43637;
+            --accent-hover: #ee5b3e;
+
+            --danger-accent: #c43637;
+
+            --focus-color: #f1d64a;
+}
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #010814, #020f2c);
+            color: var(--text-primary);
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: var(--bg-secondary);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        h2, h3, h4 {
+            margin-top: 10px;
+            color: var(--text-primary);
+            user-select: none;
+        }
+
+        p, li {
+            color: var(--text-secondary);
+            user-select: none;
+        }
+
+        
+        input {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid var(--text-secondary);
+            background: var(--bg-input);
+            color: var(--text-primary);
+            font-size: 16px;
+            transition: 0.2s ease;
+            margin-bottom: 24px;
+            /* autocomplete="off"; */
+        }
+
+        input:hover {
+            border: 1px solid #ef8442;
+        }
+
+        input:focus {
+            outline: none;
+            border: 1px solid #ef8442;
+            box-shadow: 0 0 0 2px rgba(239,132,66,0.3);
+            background: var(--focus-color);
+            color: #020f2c;
+        }
+
+        /* PO WYBRANIU / OPUSZCZENIU – ZOSTAJE TEN KOLOR */
+        input:not(:placeholder-shown) {
+            background: #f1d64a;
+            color: #020f2c;
+            border: 1px solid #ef8442;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: var(--accent-primary);
+            color: #ffffff;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 0;
+            transition: 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            
+        }
+
+        button:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        button:first-of-type {
+            margin-bottom: 8px;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--accent-primary);
+            transition: 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--accent-hover);
+        }
+
+        ol, ul {
+            text-align: left;
+            color: var(--text-secondary);
+        }
+
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        input:-webkit-autofill:active {
+            -webkit-box-shadow: 0 0 0px 1000px var(--focus-color) inset !important;
+            box-shadow: 0 0 0px 1000px var(--focus-color) inset !important;
+            -webkit-text-fill-color: #020f2c !important;
+            transition: background-color 9999s ease-in-out 0s;
+        }
+
+        body {
+            user-select: none;
+        }
+
+        input, textarea {
+            user-select: text;
+        }
+
+        button, a, input {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* ===== CUSTOM CHECKBOX ===== */
+
+        .remember-wrapper {
+            margin: 20px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .remember-label {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            font-size: 16px;
+            color: var(--text-secondary);
+        }
+
+        .remember-label input {
+            display: none;
+        }
+
+        .custom-checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--accent-primary);
+            border-radius: 6px;
+            display: inline-block;
+            position: relative;
+            transition: 0.2s ease;
+        }
+
+         .remember-label input:checked + .custom-checkbox {
+            background-color: var(--accent-primary);
+            box-shadow: 0 0 8px rgba(196,54,55,0.5);
+        }
+
+        .remember-label input:checked + .custom-checkbox::after {
+            content: "✓";
+            color: white;
+            font-size: 14px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* ===== GAME STATUS ===== */
+
+        .game-status {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            font-size: 18px;
+        }
+
+        .level {
+            display: flex;
+            gap: 5px;
+        }
+
+         .star {
+            font-size: 20px;
+            color: #244a55;
+        }
+
+        .star.active {
+            color: #f1d64a;
+            text-shadow: 0 0 6px rgba(241,214,74,0.8);
+        }
+
+        .lives {
+            font-size: 20px;
+            color: #c43637;
+        }
+
+        .lifelines {
+            font-size: 18px;
+        }
+
+        input::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+        }
+
+        input[list]::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+        }
+
+        /* Chrome / Edge suggestion box */
+        input::-webkit-autofill-previewed,
+        input::-webkit-autofill-selected {
+            background-color: var(--focus-color) !important;
+            color: #020f2c !important;
+        }
+
+        /* Upewnienie się że input ma zawsze 100% szerokości */
+        input {
+            width: 100%;
+        }
     </style>
 
 </head>
