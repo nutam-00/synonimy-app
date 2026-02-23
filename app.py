@@ -55,9 +55,6 @@ def add_points(user_id, points):
     conn.commit()
     conn.close()
 
-
-
-
 # ================= TWORZENIE TABELI =================
 def init_db():
     conn = get_connection()
@@ -81,45 +78,38 @@ def init_db():
         )
     """)
 
+
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS tematy (
+            id SERIAL PRIMARY KEY,
+            temat TEXT NOT NULL,
+            wstep TEXT,
+            argument1 TEXT,
+            argument2 TEXT,
+            argument3 TEXT,
+            zakonczenie TEXT
+        )
+    """)
+
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS rozprawka_wyniki (
+            id SERIAL PRIMARY KEY,
+            user_id INTEGER REFERENCES users(id),
+            temat_id INTEGER REFERENCES tematy(id),
+            fragment TEXT,
+            odpowiedz TEXT,
+            data TIMESTAMP DEFAULT NOW(),
+            ocenione BOOLEAN DEFAULT FALSE,
+            punkty INTEGER
+        )
+    """)
+
     conn.commit()
     conn.close()
-
-
-# def init_db():
-#     conn = get_connection()
-#     cursor = conn.cursor()
-
-#     cursor.execute("""
-#         CREATE TABLE IF NOT EXISTS wyniki (
-#             id SERIAL PRIMARY KEY,
-#             nick TEXT NOT NULL,
-#             punkty INTEGER NOT NULL,
-#             data TIMESTAMP NOT NULL
-#         )
-#     """)
-
-#     conn.commit()
-#     conn.close()
-
-
 
 # ================= WCZYTANIE BAZY SŁÓW =================
 with open("baza_synonimow.json", "r", encoding="utf-8") as f:
     synonimy = json.load(f)
-
-
-# ================= ZAPIS WYNIKU =================
-# def zapisz_wynik(nick, punkty):
-#     conn = get_connection()
-#     cursor = conn.cursor()
-
-#     cursor.execute("""
-#         INSERT INTO wyniki (nick, punkty, data)
-#         VALUES (%s, %s, %s)
-#     """, (nick, punkty, datetime.now()))
-
-#     conn.commit()
-#     conn.close()
 
 def zapisz_wynik(user_id, punkty):
     conn = get_connection()
@@ -132,44 +122,6 @@ def zapisz_wynik(user_id, punkty):
 
     conn.commit()
     conn.close()
-
-
-
-# ================= POBIERANIE RANKINGU =================
-# def pobierz_ranking():
-#     conn = get_connection()
-#     cursor = conn.cursor()
-
-#     cursor.execute("""
-#         SELECT users.nick, wyniki.punkty
-#         FROM wyniki
-#         JOIN users ON wyniki.user_id = users.id
-#         WHERE wyniki.data >= NOW() - INTERVAL '7 days'
-#         ORDER BY wyniki.punkty DESC, wyniki.data DESC
-#         LIMIT 5
-#     """)
-
-
-#     dane = cursor.fetchall()
-#     conn.close()
-
-#     return dane
-
-# def pobierz_ranking():
-#     conn = get_connection()
-#     cursor = conn.cursor()
-
-#     cursor.execute("""
-#         SELECT nick, total_points
-#         FROM users
-#         ORDER BY total_points DESC
-#         LIMIT 5
-#     """)
-
-#     dane = cursor.fetchall()
-#     conn.close()
-
-#     return dane
 
 def pobierz_ranking():
     conn = get_connection()
@@ -197,10 +149,23 @@ def pobierz_ranking():
 # ================= STRONA STARTOWA =================
 # @app.route("/")
 # def index():
-#     return render_template("index.html")
+#     cookie_user_id = request.cookies.get("user_id")
+#     nick = ""
 
+#     if cookie_user_id:
+#         user = get_user_by_id(cookie_user_id)
+#         if user:
+#             nick = user[1]
+
+#     return render_template("index.html", saved_nick=nick)
 @app.route("/")
-def index():
+def wybor_gry():
+    return render_template("wybor.html")
+
+
+# ================= SYNONIMY =================
+@app.route("/synonimy")
+def synonimy_start():
     cookie_user_id = request.cookies.get("user_id")
     nick = ""
 
@@ -211,57 +176,36 @@ def index():
 
     return render_template("index.html", saved_nick=nick)
 
+# ================= ROZPRAWKA =================
+@app.route("/rozprawka")
+def rozprawka_start():
+    return render_template("rozprawka_start.html")
+
+# ================= ROZPOCZĘCIE GRY - ROZPRAWKA =================
+@app.route("/start_rozprawka", methods=["POST"])
+def start_rozprawka():
+    nick = request.form.get("nick").strip()
+
+    session.clear()
+
+    user_id = create_user(nick)
+
+    session["user_id"] = user_id
+    session["nick"] = nick
+    session["czas_start"] = datetime.now().isoformat()
+
+    return redirect("/gra_rozprawka")
+
+# ================= GRA ROZPRAWKA =================
+@app.route("/gra_rozprawka")
+def gra_rozprawka():
+
+    if "nick" not in session:
+        return redirect("/rozprawka")
+
+    return render_template("gra_rozprawka.html")
+
 # ================= ROZPOCZĘCIE GRY =================
-# @app.route("/start", methods=["POST"])
-# def start_post():
-#     nick = request.form.get("nick")
-
-#     session.clear()
-#     session["nick"] = nick
-#     session["punkty"] = 0
-#     session["runda"] = 1
-#     session["zapisano"] = False
-
-#     session["wylosowane"] = random.sample(list(synonimy.keys()), 5)
-
-#     return redirect("/gra")
-
-# @app.route("/start", methods=["POST"])
-# def start_post():
-#     nick = request.form.get("nick")
-#     remember = request.form.get("remember")
-
-#     session.clear()
-
-#     # jeśli user ma cookie
-#     user_id = request.cookies.get("user_id")
-
-#     if user_id:
-#         user = get_user_by_id(user_id)
-#         if user:
-#             session["user_id"] = user[0]
-#             session["nick"] = user[1]
-#         else:
-#             user_id = create_user(nick)
-#             session["user_id"] = user_id
-#             session["nick"] = nick
-#     else:
-#         user_id = create_user(nick)
-#         session["user_id"] = user_id
-#         session["nick"] = nick
-
-#     session["punkty"] = 0
-#     session["runda"] = 1
-#     session["zapisano"] = False
-#     session["wylosowane"] = random.sample(list(synonimy.keys()), 5)
-
-#     response = make_response(redirect("/gra"))
-
-#     if remember:
-#         response.set_cookie("user_id", str(session["user_id"]), max_age=60*60*24*365)
-
-#     return response
-
 @app.route("/start", methods=["POST"])
 def start_post():
     nick = request.form.get("nick").strip()
@@ -307,8 +251,6 @@ def start_post():
         response.set_cookie("user_id", str(user_id), max_age=60*60*24*365)
 
     return response
-
-
 
 # ================= GRA =================
 @app.route("/gra", methods=["GET", "POST"])
@@ -368,26 +310,6 @@ def wynik():
 
 
 # ================= RANKING =================
-# @app.route("/ranking")
-# def ranking():
-
-#     if "punkty" in session and not session.get("zapisano", False):
-#         zapisz_wynik(session.get("nick", "Gracz"), session["punkty"])
-#         session["zapisano"] = True
-
-#     ranking = pobierz_ranking()
-#     return render_template("ranking.html", ranking=ranking)
-# @app.route("/ranking")
-# def ranking():
-
-#     if "punkty" in session and not session.get("zapisano", False):
-#         zapisz_wynik(session["user_id"], session["punkty"])
-#         add_points(session["user_id"], session["punkty"])
-#         session["zapisano"] = True
-
-#     ranking = pobierz_ranking()
-#     return render_template("ranking.html", ranking=ranking)
-
 @app.route("/ranking")
 def ranking():
 
@@ -433,37 +355,12 @@ def exit_game():
         session["user_id"] = user_id
         session["nick"] = nick
 
-    return redirect("/")
+    return redirect("/synonimy")
 
 @app.route("/init-db")
 def init_database():
     init_db()
     return "Database initialized!"
-
-# @app.route("/debug-users")
-# def debug_users():
-#     conn = get_connection()
-#     cursor = conn.cursor()
-#     cursor.execute("SELECT id, nick, total_points FROM users")
-#     users = cursor.fetchall()
-#     conn.close()
-#     return str(users)
-
-# @app.route("/reset-db")
-# def reset_db():
-#     conn = get_connection()
-#     cursor = conn.cursor()
-
-#     cursor.execute("DROP TABLE IF EXISTS wyniki")
-#     cursor.execute("DROP TABLE IF EXISTS users")
-
-#     conn.commit()
-#     conn.close()
-
-#     return "Tables dropped!"
-
-
-
 
 
 if __name__ == "__main__":
